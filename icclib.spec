@@ -3,18 +3,16 @@
 %define lib_name_devel %mklibname icc -d
 
 Name:    icclib
-Version: 2.1
-Release: %mkrel 0.beta.1
+Version: 2.11
+Release: %mkrel 1
 Summary: ICC profile I/O library
 
 Group:     Graphics
 License:   GPLv3
 URL:       http://www.argyllcms.com/
-Source0:   http://www.argyllcms.com/icclib.v%{version}beta.zip
+Source0:   http://www.argyllcms.com/icclib_V%{version}.zip
 # (fc) 2.1-0.beta.1mdv change build system to use autotools (Debian)
 Patch0:    icclib-2.1-autotools.patch
-# (fc) 2.1-0.beta.1mdv upstream bugfix 
-Patch1:    icclib-2.1-bugfix.patch
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -47,7 +45,6 @@ Color Consortium (ICC) Profile Format Specification, Version 3.4.
 %prep
 %setup -q -c
 %patch0 -p1 -b .autotools
-%patch1 -p1 -b .bugfix
 
 #needed by patch0
 autoreconf -i
