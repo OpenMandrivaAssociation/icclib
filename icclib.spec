@@ -4,13 +4,13 @@
 
 Name:    icclib
 Version: 2.12
-Release: %mkrel 0.rc3.1
+Release: %mkrel 1
 Summary: ICC profile I/O library
 
 Group:     Graphics
 License:   GPLv3
 URL:       http://www.argyllcms.com/
-Source0:   http://www.argyllcms.com/icclib_V%{version}_RC3.zip
+Source0:   http://www.argyllcms.com/icclib_V%{version}.zip
 # (fc) 2.1-0.beta.1mdv change build system to use autotools (Debian)
 Patch0:    icclib-2.1-autotools.patch
 
