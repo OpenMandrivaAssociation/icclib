@@ -1,0 +1,38 @@
+--- libicc-2.10~beta.orig/configure.ac
++++ libicc-2.10~beta/configure.ac
+@@ -0,0 +1,16 @@
++AC_INIT([libicc], [2.10])
++AM_INIT_AUTOMAKE([1.9 foreign])
++
++AC_PROG_CC
++AC_PROG_RANLIB
++AC_PROG_INSTALL
++
++AM_PROG_LIBTOOL
++AC_PROG_LIBTOOL
++
++AC_PATH_XTRA
++
++AC_CHECK_LIB(m, sqrt)
++
++AC_CONFIG_FILES([Makefile])
++AC_OUTPUT
+--- libicc-2.10~beta.orig/Makefile.am
++++ libicc-2.10~beta/Makefile.am
+@@ -0,0 +1,16 @@
++## Process this file with automake to produce Makefile.in
++
++lib_LTLIBRARIES = libicc.la
++
++libicc_la_SOURCES = icc.h iccV42.h icc.c iccstd.c
++libicc_la_LDFLAGS = -version-number $(shell echo @PACKAGE_VERSION@ | tr . :):0
++
++include_HEADERS = icc.h iccV42.h
++
++LDADD = libicc.la
++
++bin_PROGRAMS = icctest iccdump icclu
++
++check_PROGRAMS = iccrw lutest
++
++EXTRA_DIST = License.txt Readme.txt
