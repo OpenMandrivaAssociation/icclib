@@ -9,7 +9,7 @@ Release:	1
 Group:		Graphics
 License:	GPLv3
 Url:		http://www.argyllcms.com/
-Source0:	http://www.argyllcms.com/icclib_V%{version}.zip
+Source0:	http://www.argyllcms.com/%{name}_V%{version}.zip
 # (fc) 2.1-0.beta.1mdv change build system to use autotools (Debian)
 Patch0:		icclib-2.1-autotools.patch
 
@@ -31,7 +31,7 @@ Color Consortium (ICC) Profile Format Specification, Version 3.4.
 Summary:        Development libraries, header files for icclib
 Group:          Development/GNOME and GTK+
 Requires:       %{libname} = %{version}
-Provides:	icclib-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
 The icclib is a set of routines which implement the reading and
@@ -61,7 +61,7 @@ make check
 %{_bindir}/*
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/libicc.so.%{major}*
 
 %files -n %{devname}
 %doc log.txt Readme.txt todo.txt
