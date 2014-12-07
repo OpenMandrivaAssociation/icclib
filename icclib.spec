@@ -5,7 +5,7 @@
 Summary:	ICC profile I/O library
 Name:		icclib
 Version:	2.14
-Release:	7
+Release:	8
 Group:		Graphics
 License:	GPLv3
 Url:		http://www.argyllcms.com/
