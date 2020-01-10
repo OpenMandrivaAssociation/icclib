@@ -40,7 +40,7 @@ Color Consortium (ICC) Profile Format Specification, Version 3.4.
 
 %prep
 %setup -qc
-%apply_patches
+%autopatch -p1
 
 #needed by patch0
 autoreconf -i
