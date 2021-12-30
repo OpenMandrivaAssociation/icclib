@@ -1,0 +1,46 @@
+diff --git a/icc.c b/icc.c
+index 40793e1..8afab56 100644
+--- a/icc.c
++++ b/icc.c
+@@ -14076,11 +14076,11 @@ icmXYZNumber icmD50_100 = {		/* Profile illuminant - D50, scaled to 100 */
+     96.42, 100.00, 82.49
+ };
+ 
+-double icmD50_ary3[3] = { 		/* Profile illuminant - D50 */
++static double icmD50_ary3[3] = { 		/* Profile illuminant - D50 */
+     0.9642, 1.0000, 0.8249
+ };
+ 
+-double icmD50_100_ary3[3] = {	/* Profile illuminant - D50, scaled to 100 */
++static double icmD50_100_ary3[3] = {	/* Profile illuminant - D50, scaled to 100 */
+     96.42, 100.00, 82.49
+ };
+ 
+diff --git a/icc.h b/icc.h
+index c9ba05a..47d8b7a 100644
+--- a/icc.h
++++ b/icc.h
+@@ -1899,8 +1899,8 @@ extern ICCLIB_API void icm1960UCS21964WUV(icmXYZNumber *w, double *out, double *
+ /* The standard D50 illuminant value */
+ extern icmXYZNumber icmD50;
+ extern icmXYZNumber icmD50_100;		/* Scaled to 100 */
+-double icmD50_ary3[3];				/* As an array */
+-double icmD50_100_ary3[3];			/* Scaled to 100 as an array */
++static double icmD50_ary3[3];				/* As an array */
++static double icmD50_100_ary3[3];			/* Scaled to 100 as an array */
+ 
+ /* The standard D65 illuminant value */
+ extern icmXYZNumber icmD65;
+diff --git a/iccstd.c b/iccstd.c
+index 742be4d..f6f1f6b 100644
+--- a/iccstd.c
++++ b/iccstd.c
+@@ -34,7 +34,7 @@
+ #if defined(__IBMC__) && defined(_M_IX86)
+ #include <float.h>
+ #endif
+-#include "icc.h"
++//#include "icc.h"
+ 
+ #endif /* !COMBINED_STD */
+ 

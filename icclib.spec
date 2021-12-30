@@ -1,17 +1,20 @@
 %define major	2
 %define libname %mklibname icc %{major}
 %define devname %mklibname icc -d
+%define zipname ICCLib
 
 Summary:	ICC profile I/O library
 Name:		icclib
-Version:	2.14
-Release:	10
+Version:	2.16
+Release:	1
 Group:		Graphics
 License:	GPLv3
 Url:		http://www.argyllcms.com/
-Source0:	http://www.argyllcms.com/%{name}_V%{version}.zip
+Source0:	http://www.argyllcms.com/%{zipname}_V%{version}_src.zip
+
 # (fc) 2.1-0.beta.1mdv change build system to use autotools (Debian)
 Patch0:		icclib-2.1-autotools.patch
+Patch1:		fix-linker-multiple-symbols.patch
 
 %description
 The icclib is a set of routines which implement the reading and
@@ -39,8 +42,9 @@ writing of color profile files that conform to the International
 Color Consortium (ICC) Profile Format Specification, Version 3.4.
 
 %prep
-%setup -qc
-%autopatch -p1
+#%%setup -qc
+%autosetup -p1 -n %{zipname}_V%{version}
+#%%autopatch -p1
 
 #needed by patch0
 autoreconf -i
@@ -49,7 +53,7 @@ autoreconf -i
 %configure2_5x \
 	--disable-static
 
-%make
+%make_build
 
 %check
 make check
