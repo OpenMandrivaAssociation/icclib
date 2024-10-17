@@ -9,7 +9,7 @@ Version:	2.16
 Release:	2
 Group:		Graphics
 License:	GPLv3
-Url:		http://www.argyllcms.com/
+Url:		https://www.argyllcms.com/
 Source0:	http://www.argyllcms.com/%{zipname}_V%{version}_src.zip
 
 # (fc) 2.1-0.beta.1mdv change build system to use autotools (Debian)
